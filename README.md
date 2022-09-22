@@ -1,10 +1,9 @@
-# flutter_application_1
+# Flutter Runner Game
 
-A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This a simple runner game
 
 A few resources to get you started if this is your first Flutter project:
 
