@@ -82,6 +82,7 @@ class _MyGameState extends State<MyGame> {
   // this method for showing the animation of moving for the player
   void movePlayer() {
     playerTimer = Timer.periodic(Duration(milliseconds: 50), (timer) {
+      score++;
       setState(() {
         numberOfPlayerImages++;
         if (numberOfPlayerImages == 9) {
@@ -148,7 +149,7 @@ class _MyGameState extends State<MyGame> {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: SizedBox(
-                height: 100,
+                height: 200,
                 width: 200,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -157,13 +158,19 @@ class _MyGameState extends State<MyGame> {
                       'G A M E O V E R',
                       style: TextStyle(color: Colors.black, fontSize: 30),
                     ),
+                    Text(
+                      'Your score $score',
+                      style: TextStyle(color: Colors.black, fontSize: 30),
+                    ),
                     ElevatedButton(
                       onPressed: () {
                         moveBackground();
                         movePlayer();
                         moveZombie();
                         spawnZombie();
-
+                        score = 0;
+                        isGameStarted = true;
+                        isJuping = false;
                         Navigator.of(context).pop();
                       },
                       child: const Text(
